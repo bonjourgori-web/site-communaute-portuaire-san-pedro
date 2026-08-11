@@ -1,0 +1,162 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom Port Colors */
+  --color-navy: #0B1D3A;
+  --color-navy-light: #132D54;
+  --color-navy-dark: #061225;
+  --color-ocean: #1A6FA0;
+  --color-ocean-light: #2389C4;
+  --color-ocean-dark: #0F4F74;
+  --color-cream: #F5F0E8;
+  --color-cream-dark: #E8DFD0;
+  --color-amber: #C4842B;
+  --color-amber-light: #D99A3E;
+  --color-amber-dark: #9E6A22;
+  --color-safety: #E8751A;
+  --color-safety-light: #F09040;
+  --color-safety-dark: #C45E0E;
+  --color-forest: #2D6B4F;
+  --color-forest-light: #3A8A66;
+  --color-forest-dark: #1F4D38;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.985 0.005 80);
+  --foreground: oklch(0.15 0.02 250);
+  --card: oklch(0.995 0.002 80);
+  --card-foreground: oklch(0.15 0.02 250);
+  --popover: oklch(0.995 0.002 80);
+  --popover-foreground: oklch(0.15 0.02 250);
+  --primary: #0B1D3A;
+  --primary-foreground: #F5F0E8;
+  --secondary: #E8DFD0;
+  --secondary-foreground: #0B1D3A;
+  --muted: #E8DFD0;
+  --muted-foreground: oklch(0.45 0.01 250);
+  --accent: #1A6FA0;
+  --accent-foreground: #F5F0E8;
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: #D4CCBE;
+  --input: #D4CCBE;
+  --ring: #1A6FA0;
+  --chart-1: #0B1D3A;
+  --chart-2: #1A6FA0;
+  --chart-3: #C4842B;
+  --chart-4: #2D6B4F;
+  --chart-5: #E8751A;
+  --sidebar: #F5F0E8;
+  --sidebar-foreground: #0B1D3A;
+  --sidebar-primary: #0B1D3A;
+  --sidebar-primary-foreground: #F5F0E8;
+  --sidebar-accent: #E8DFD0;
+  --sidebar-accent-foreground: #0B1D3A;
+  --sidebar-border: #D4CCBE;
+  --sidebar-ring: #1A6FA0;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #1A6FA0 #E8DFD0;
+  }
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #E8DFD0;
+    border-radius: 3px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #1A6FA0;
+    border-radius: 3px;
+  }
+}
+
+/* Tabular figures for data */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Parallax container */
+.parallax-container {
+  perspective: 1px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Counter animation */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse for live indicator */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.live-pulse {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Port map terminal highlight */
+.terminal-highlight {
+  transition: all 0.3s ease;
+}
+.terminal-highlight:hover {
+  filter: brightness(1.2);
+  transform: scale(1.02);
+}
